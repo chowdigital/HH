@@ -1,0 +1,1025 @@
+/*!
+Theme Name: Cloudsdale_Theme
+Theme URI: https://cloudsdale.co.uk/fullfat
+Author: Sean Cloudsdale
+Author URI: https://cloudsdale.co.uk/
+*/
+
+@import "generic/normalize";
+
+//@import "lightslider";
+
+// ===========================================================================
+// My Custom Styles
+// ===========================================================================
+//
+// Table of Contents:
+//
+//  1. Header Settings
+//  2. Typography
+//  3. Navigation
+//  4. Footer
+//  5. Containers
+//  6. Buttons
+//  7. Video
+//  8. Images
+//  9. Appear
+//  10. Home
+//  11. Scrolling Text
+//  12. What's On
+//  13. bootstrap favorites
+
+$primary: #ef236b;
+$highlight: #feb002;
+$white: #efeeeb;
+$black: #000;
+$sunrise: linear-gradient(to bottom, #feb002, #ef236b);
+$sunset: linear-gradient(to bottom, #ef236b, #0233d1);
+
+$xs: 575px;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+
+// ===========================================================================
+// 1. Header Settings
+// ===========================================================================
+body,
+#page,
+.view,
+html {
+  width: 100%;
+  height: 100%;
+}
+body {
+  background-image: url("../Starsky/assets/img/photos/AdobeStock_569746674.png"); /* Replace 'your-image.jpg' with the path to your background image */
+  background-repeat: repeat;
+  /* Add other styles as needed */
+  margin: 0; /* Remove default body margin for a cleaner look */
+}
+body {
+  overflow: scroll;
+}
+.coming-soon {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+}
+body.logged-in {
+  nav,
+  .cm-nav,
+  #offcanvasNav {
+    margin-top: 32px;
+  }
+  .coming-soon {
+    display: none;
+    position: fixed;
+    width: 0;
+    height: 0;
+    z-index: 0;
+  }
+}
+body {
+  background-color: $white;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-end {
+  align-self: flex-end;
+}
+
+// ===========================================================================
+//  2. Typography
+// ===========================================================================
+
+@font-face {
+  font-family: "Falco Black";
+  src: url("../starsky/assets/fonts/FalcoBlack.eot");
+  src: url("../starsky/assets/fonts/FalcoBlack.eot?#iefix")
+      format("embedded-opentype"),
+    url("../starsky/assets/fonts/FalcoBlack.woff") format("woff"),
+    url("../starsky/assets/fonts/FalcoBlack.ttf") format("truetype"),
+    url("../starsky/assets/fonts/FalcoBlack.svg#Falco_Black_Outline")
+      format("svg");
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: "Monda";
+  src: url("../starsky/assets/fonts/Monda-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+h1 {
+  font-family: "Monda", sans-serif;
+  text-transform: uppercase;
+}
+h2 {
+  font-family: "Monda";
+}
+h3,
+h4,
+h5 {
+  font-family: "Falco Black", sans-serif;
+  font-style: normal;
+  color: $primary;
+}
+
+body,
+p {
+  font-family: "Monda", sans-serif;
+
+  font-style: normal;
+  color: $black;
+}
+.menu-item a,
+.btn,
+button {
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: lowercase;
+  letter-spacing: 1px;
+}
+.btn:visited {
+  color: $white;
+}
+
+h1 {
+  font-size: 50px; //calc(3rem + 0.6vw);
+  letter-spacing: 0.05em;
+}
+h2 {
+  font-size: calc(1.4rem + 0.6vw);
+  letter-spacing: 0.05em;
+}
+h3 {
+  font-size: calc(1.3rem + 0.6vw);
+  letter-spacing: 0.05em;
+  margin-bottom: 0;
+}
+p {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style-type: none;
+}
+// ===========================================================================
+//  3. Navigation
+// ===========================================================================
+
+.navbar-brand {
+  position: fixed;
+  z-index: 1000;
+  top: 4px;
+  left: calc(50% - 80px);
+  img {
+    width: 160px;
+  }
+}
+@media (min-width: $md) {
+  .navbar-brand {
+    top: -10px;
+    left: calc(50% - 110px);
+    img {
+      width: 220px;
+    }
+  }
+}
+
+.social-icons {
+  position: fixed;
+  z-index: 1000;
+  top: 20px;
+  right: 10px;
+  padding: none;
+  transition: 0.5s ease-in-out;
+
+  a {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+  }
+  .instagram-icon {
+    background-image: url(assets/img/icons/instagram.svg);
+  }
+  .facebook-icon {
+    background-image: url(assets/img/icons/facebook.svg);
+  }
+  .twitter-icon {
+    background-image: url(assets/img/icons/twitter.svg);
+  }
+}
+
+@media (min-width: $md) {
+  .social-icons {
+    top: 20px;
+    right: 20px;
+  }
+}
+
+.off-canvas-container {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  img {
+    width: 100%;
+    max-width: 600px;
+    padding-bottom: 30px;
+  }
+}
+.navbar-nav li a {
+  padding: 10px;
+  display: block;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  padding-top: 9px;
+  border-radius: 10px;
+  color: $primary;
+  background-color: $white;
+  margin: 10px 0px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+.navbar-nav li a:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+.navbar-nav li a:visited,
+.navbar-nav li a:focus,
+.navbar-nav li a:highlight {
+  color: $primary;
+}
+
+ul,
+ol {
+  margin: 0;
+}
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+/* Off-canvas menu container */
+.off-canvas-menu {
+  position: fixed;
+  top: 0;
+  left: -100%; /* Start off-canvas menu off-screen */
+  width: 100%;
+
+  z-index: 2000; /* Ensure it appears on top of other elements */
+  transition: left 0.3s ease; /* Add a smooth transition effect */
+  background: $sunrise;
+  transition: 0.3s ease; /* Add a smooth transition effect */
+}
+
+/* Menu content */
+.menu-content {
+  padding: 20px; /* Add padding or styling to your menu content */
+  transition: 0.3s ease; /* Add a smooth transition effect */
+}
+
+/* Button to open the menu */
+.menu-button {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  border: none;
+  cursor: pointer;
+  z-index: 1000; /* Ensure it's above the menu */
+}
+
+/* Adjust the button and menu position when the menu is open */
+.off-canvas-menu.open {
+  left: 0;
+}
+
+/* animate opening closing */
+
+/* GENERAL STYLES */
+.visuallyHidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+.container-checkbox {
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
+  label {
+    height: 67px;
+    width: 67px;
+    .hamburger {
+      top: 20px;
+    }
+  }
+}
+@media (min-width: $md) {
+  .container-checkbox label {
+    height: 67px;
+    width: 67px;
+  }
+  .container-checkbox label .hamburger {
+    top: 20px;
+  }
+}
+.hamburger {
+  margin: 0 auto;
+  width: 40px;
+  height: 30px;
+  position: relative;
+}
+
+.hamburger .bar {
+  padding: 0;
+  width: 40px;
+  height: 5px;
+  background-color: $white;
+  display: block;
+  border-radius: 4px;
+  transition: all 0.4s ease-in-out;
+  position: absolute;
+}
+
+.bar1 {
+  top: 0;
+}
+
+.bar2,
+.bar3 {
+  top: 12px;
+}
+
+.bar3 {
+  right: 0;
+}
+
+.bar4 {
+  bottom: 0;
+}
+
+/* HAMBURGER 1 */
+.checkbox1:checked + label > .hamburger1 > .bar1 {
+  transform: rotate(45deg);
+  transform-origin: 5%;
+  width: 44px;
+}
+
+.checkbox1:checked + label > .hamburger1 > .bar2 {
+  transform: translateX(-40px);
+  background-color: transparent;
+}
+
+.checkbox1:checked + label > .hamburger1 > .bar3 {
+  transform: translateX(40px);
+  background-color: transparent;
+}
+
+.checkbox1:checked + label > .hamburger1 > .bar4 {
+  transform-origin: 5%;
+  transform: rotate(-45deg);
+  width: 44px;
+}
+// Main Logo
+#open-menu {
+  z-index: 1000;
+}
+#mainLogo {
+  width: 100%;
+  position: fixed;
+  top: 9px;
+  display: flex;
+  justify-content: center;
+  z-index: 1001;
+  .text-logo {
+    display: none;
+  }
+  .img-logo {
+    width: 40px;
+    padding-top: 5px;
+  }
+}
+@media (min-width: $md) {
+  .img-logo {
+    width: 50px;
+    padding-top: 5px;
+  }
+}
+@media (min-width: $lg) {
+  #mainLogo {
+    width: 100%;
+    top: 23px;
+    display: flex;
+    justify-content: center;
+    .text-logo {
+      width: 220px;
+      display: block;
+    }
+    .img-logo {
+      display: none;
+    }
+  }
+}
+
+// The Off canvas bit
+.menu-content {
+  background: $sunrise;
+  height: 100%;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  color: $white;
+  text-decoration: none;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.fixed-navbar {
+  position: fixed;
+  width: 100%;
+  width: 100vw;
+  height: 67px;
+  background: $sunrise;
+  z-index: 1000;
+}
+@media (min-width: $md) {
+  .fixed-navbar {
+    height: 67px;
+  }
+}
+// ===========================================================================
+//  4. Footer
+// ===========================================================================
+#footer {
+  background: $sunset;
+  margin-top: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.footer-item {
+  line-height: 40px;
+  display: flex;
+}
+//remove at bottom of footer
+.page {
+  margin: 0;
+  padding-top: 0px;
+}
+
+footer a,
+footer a:visited {
+  color: $white;
+  width: 100%;
+  font-weight: 400;
+  font-size: 0.9em;
+  text-decoration: none;
+  margin-bottom: 3px;
+  img {
+    margin-right: 5px;
+    margin-top: 5px;
+    width: 30px;
+    margin-bottom: -10px;
+  }
+}
+footer a:hover {
+  color: $highlight;
+}
+
+// ===========================================================================
+//  5. Containers
+// ===========================================================================
+.container {
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: $md) {
+  .container {
+    width: 80%;
+  }
+}
+@media (min-width: $lg) {
+  .container {
+    width: 70%;
+  }
+}
+@media (min-width: $xl) {
+  .container {
+    width: 60%;
+  }
+}
+
+.full-height-column {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
+  flex-direction: column;
+}
+@media (min-width: $md) {
+  .full-height-column {
+  }
+}
+// ===========================================================================
+//  6. Buttons
+// ===========================================================================
+
+.btn:hover {
+  background-position: right center;
+  color: $white;
+}
+.btn {
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: $white;
+  padding-top: 10px;
+  padding-bottom: 7px;
+  border-radius: 10px;
+}
+.btn-sunset {
+  background-image: linear-gradient(
+    to right,
+    #ef236b 0%,
+    #0233d1 51%,
+    #ef236b 100%
+  );
+}
+.btn-sunrise {
+  background-image: linear-gradient(
+    to right,
+    #feb002 0%,
+    #ef236b 51%,
+    #feb002 100%
+  );
+}
+
+// ===========================================================================
+//  8. Images
+// ===========================================================================
+
+.round-br {
+  border-bottom-right-radius: 150px;
+}
+.round-l {
+  border-bottom-left-radius: 150px;
+  border-top-left-radius: 150px;
+}
+.round-r {
+  border-bottom-right-radius: 150px;
+  border-top-right-radius: 150px;
+}
+.sml-img {
+  height: 300px;
+}
+
+.lg-img {
+  height: 600px;
+}
+.hero-img {
+  flex-basis: 70%;
+  margin-right: 20%;
+}
+
+.logo-landing {
+  flex-basis: 30%;
+
+  text-align: right;
+  img {
+    height: calc(100% - 30px);
+    margin-top: 15px;
+    margin-right: 5%;
+  }
+}
+@media (min-width: $md) {
+  .home-img-1 {
+    margin-top: 40px;
+  }
+  .round-br {
+    border-bottom-right-radius: 300px;
+  }
+  .round-l {
+    border-bottom-left-radius: 300px;
+    border-top-left-radius: 300px;
+  }
+  .round-r {
+    border-bottom-right-radius: 300px;
+    border-top-right-radius: 300px;
+  }
+  .sml-img {
+    height: 400px;
+  }
+
+  .lg-img {
+    height: 800px;
+  }
+}
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.img-left {
+  flex-basis: 80%;
+  margin-left: 0%;
+}
+.img-right {
+  flex-basis: 80%;
+  margin-left: 20%;
+}
+.text-box {
+  flex-basis: 80%;
+  margin-left: 10%;
+}
+
+.sm-none {
+  display: none;
+}
+.flex-80-left {
+  flex-basis: 80%;
+}
+.flex-80-right {
+  flex-basis: 80%;
+  margin-left: 20%;
+}
+
+@media (min-width: $md) {
+  .flex-container {
+    flex-wrap: nowrap;
+  }
+  .img-left,
+  .img-right {
+    flex-basis: 50%;
+    margin-left: 0%;
+  }
+  .text-box {
+    flex-basis: 30%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  .hero-img {
+    margin-right: 40%;
+  }
+  .sm-none {
+    display: block;
+  }
+}
+@media (min-width: $lg) {
+  .img-left,
+  .img-right {
+    flex-basis: 60%;
+    margin-left: 0%;
+  }
+  .text-box {
+    flex-basis: 20%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  .hero-img {
+    margin-right: 25%;
+  }
+}
+// ===========================================================================
+//  9. Appear
+// ===========================================================================
+
+.appear2 {
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+  opacity: 0;
+  -webkit-transform: translateY(20px);
+  transform: translateY(20px);
+}
+
+.appear2.inview2 {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.1s;
+}
+//make nav appear delayed
+
+.site-header .off-canvas-container .navbar-nav li {
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+  opacity: 0;
+  -webkit-transform: translateY(20px);
+  transform: translateY(20px);
+}
+.site-header .open .off-canvas-container .navbar-nav li {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+.site-header .off-canvas-container #navImg {
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+  opacity: 0;
+  -webkit-transform: translateY(20px);
+  transform: translateY(20px);
+}
+.site-header .open .off-canvas-container #navImg {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+.site-header .open .off-canvas-container .navbar-nav li {
+  $delay-increment: 0.1s;
+
+  @for $i from 1 through 20 {
+    &:nth-child(#{$i}) {
+      $delay: $delay-increment * ($i - 1);
+      transition-delay: $delay;
+      -webkit-transition-delay: $delay;
+    }
+  }
+}
+
+// ===========================================================================
+//  10. Home Page
+// ===========================================================================
+
+.home-intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.home-about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+// ===========================================================================
+//  11. Scolling text
+// ===========================================================================
+
+.wrapper {
+  width: 100%;
+  flex-basis: 100%;
+  overflow: hidden;
+}
+
+.marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: marquee 40s linear infinite;
+}
+.scroll-reverse {
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: marquee2 40s linear infinite;
+}
+.marquee h1,
+.scroll-reverse h1 {
+  display: inline-block;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marquee2 {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0%, 0, 0);
+  }
+}
+
+// ===========================================================================
+//  12. What's On
+// ===========================================================================
+
+// Homepage loop
+
+.all-posts {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 150px;
+}
+.recent-post {
+  flex-basis: 100%;
+}
+.square-img {
+  height: 300px;
+  margin-left: 30%;
+  border-top-left-radius: 150px;
+  border-bottom-left-radius: 150px;
+}
+.recent-post:nth-child(even) {
+  .square-img {
+    margin-right: 30%;
+    margin-left: 0%;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 150px;
+    border-bottom-right-radius: 150px;
+  }
+}
+.post-content {
+  padding: 10% 20%;
+}
+@media (min-width: $md) {
+  .all-posts {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .post-content {
+    padding: 0 0;
+  }
+  .square-img {
+    height: auto;
+    padding-bottom: 100%;
+    margin-left: 0%;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  .recent-post:nth-child(even) {
+    .square-img {
+      height: auto;
+      padding-bottom: 100%;
+      margin-left: 0%;
+      margin-right: 0%;
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+  }
+  .all-posts {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  .recent-post:nth-child(1) {
+    .square-img {
+      border-top-left-radius: 150px;
+    }
+  }
+  .recent-post:nth-child(3) {
+    .square-img {
+      border-top-right-radius: 150px;
+    }
+  }
+  .recent-post {
+    flex-basis: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+.section-heading {
+  padding-top: 75px;
+  padding-bottom: 25px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: $md) {
+  .section-heading {
+    text-align: center;
+  }
+}
+// whats on page
+
+.whats-on {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 100px;
+  flex-wrap: wrap;
+  .sml-img {
+    flex-basis: 80%;
+    margin-left: 0%;
+    border-top-right-radius: 150px;
+    border-bottom-right-radius: 150px;
+  }
+  .blog-intro {
+    flex-basis: 100%;
+    padding-right: 10%;
+    padding-left: 10%;
+    .btn {
+      margin-top: 1em;
+    }
+  }
+}
+.whats-on:nth-child(even) {
+  .sml-img {
+    margin-left: 20%;
+    border-bottom-left-radius: 150px;
+    border-top-left-radius: 150px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+}
+@media (min-width: $md) {
+  .archive .whats-on {
+    flex-wrap: nowrap;
+    display: flex;
+  }
+  .archive .whats-on .blog-intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .whats-on:nth-child(even) {
+    .sml-img {
+      order: 2;
+      margin-left: 0%;
+    }
+  }
+  .whats-on {
+    .sml-img {
+      flex-basis: 60%;
+    }
+    .blog-intro {
+      flex-basis: 40%;
+      padding-right: 5%;
+      padding-left: 5%;
+    }
+  }
+}
+@media (min-width: $xl) {
+  .whats-on {
+    .sml-img {
+      flex-basis: 80%;
+      margin-left: 0%;
+    }
+    .blog-intro {
+      flex-basis: 30%;
+      padding-right: 5%;
+      padding-left: 5%;
+    }
+  }
+}
+
+// ===========================================================================
+//  13. Bootstrap favorites
+// ===========================================================================
+.pt-1 {
+  padding-top: 1em;
+}
+.d-none {
+  display: none;
+}
+
+.sm-none {
+  display: none;
+}
+
+@media (min-width: $md) {
+  .sm-none {
+    display: flex;
+  }
+}
