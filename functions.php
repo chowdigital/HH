@@ -139,7 +139,7 @@ add_action( 'widgets_init', 'cloudsdale_master_widgets_init' );
  */
 function cloudsdale_master_scripts() {
 	//wp_enqueue_style( 'Bootstrap','https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css', array() );
-	//wp_enqueue_style( 'Typekit', 'https://use.typekit.net/agm4xuc.css' );
+	wp_enqueue_style( 'Typekit', 'https://use.typekit.net/glv2ifr.css' );
 	//wp_enqueue_style( 'lightslider', get_template_directory_uri() . '/lightslider.css', array(), $ver = 1.0 );
 	wp_enqueue_style( 'cloudsdale-master-style', get_stylesheet_uri(), array(), $ver = 2.3 );
 	wp_style_add_data( 'cloudsdale-master-style', 'rtl', 'replace' );
@@ -197,3 +197,12 @@ function custom_excerpt_length( $length ) {
 	return 35;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 100 );
+
+/**
+ * Custom metabox for logo
+ */
+require_once get_template_directory() . '/functions/custom-post-logo.php';
+
+require_once get_template_directory() . '/functions/link-to-website.php';
+
+require_once get_template_directory() . '/functions/venues.php';

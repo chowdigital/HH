@@ -111,3 +111,58 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   // end
 });
+
+// Change colors of text-content blocks
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Define the classes for each animated gradient
+  const gradientClasses = [
+    "color-box-green",
+    "color-box-red",
+    "color-box-blue",
+    "color-box-yellow",
+  ];
+  // Get all elements with the class 'color-box'
+  const colorBoxes = document.querySelectorAll(".color-box");
+
+  // Iterate over each 'color-box' element
+  colorBoxes.forEach((el, index) => {
+    // Add the class to apply the animated gradient
+    el.classList.add(gradientClasses[index % gradientClasses.length]);
+  });
+});
+// colors of text-content end
+// anmate logos over images
+document.addEventListener("DOMContentLoaded", () => {
+  // Define the callback function for the Intersection Observer
+  const observerCallback = (entries, observer) => {
+    entries.forEach((entry) => {
+      // Check if the element is in view
+      if (entry.isIntersecting) {
+        // Add a class that starts the animation
+        entry.target.classList.add("start-animation");
+        // Stop observing the element after animation starts
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+
+  // Set up the Intersection Observer options
+  const observerOptions = {
+    root: null, // observe changes in the viewport
+    rootMargin: "0px",
+    threshold: 0.1, // callback will be invoked when 10% of the target is visible
+  };
+
+  // Create the Intersection Observer
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+  // Get all elements with the 'feature-logo' class
+  const logos = document.querySelectorAll(".feature-logo");
+
+  // Observe each 'feature-logo' element
+  logos.forEach((logo) => {
+    observer.observe(logo);
+  });
+});
+// animate logos end

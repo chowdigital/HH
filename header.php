@@ -17,8 +17,8 @@
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/js/lightslider.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/js/lightslider.js"></script> -->
 
     <?php wp_head(); ?>
 </head>
@@ -32,9 +32,9 @@
 
 
         <header id="masthead" class="site-header" style="position: fixed;top: 0;">
-            <div class="fixed-navbar"></div>
+            <div class="fixed-navbar move-bitch"></div>
             <div id="off-canvas-menu " class="off-canvas-menu">
-                <div id="open-menu" class="menu-button container-checkbox">
+                <div id="open-menu" class="move-bitch menu-button container-checkbox">
                     <input type="checkbox" id="checkbox1" class="checkbox1 visuallyHidden">
                     <label for="checkbox1">
                         <div class="d-none hamburger hamburger1">
@@ -54,7 +54,8 @@
 
                     <div class="off-canvas-container">
                         <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-                            <img id="navImg" src="<?php echo get_template_directory_uri(); ?>/assets/img/white-logo.svg"
+                            <img id="navImg" class="move-bitch"
+                                src="<?php echo get_template_directory_uri(); ?>/assets/img/white-logo.svg"
                                 alt="Starsky Logo">
                         </a>
 
@@ -78,12 +79,19 @@
                 </div>
 
             </div>
-            <div id="soIcons" class="social-icons">
-                <a class="instagram-icon " target="_blank" href="https://www.instagram.com/starskyandhatch/?hl=en"></a>
-                <a class="facebook-icon " target="_blank" href="https://www.facebook.com/starskyandhatchhastings/"></a>
+            <div class="dropdown move-bitch">
+                <button class="dropbtn">Restaurants & Bars <span class="arrow"></span></button>
+                <div class="dropdown-content">
+                    <a href="<?php echo get_home_url(); ?>/restaurants-bars">Restaurants & Bars</a>
+                    <a href="<?php echo get_home_url(); ?>/productions-entertainment">Productions & Entertainment</a>
+                    <a href="<?php echo get_home_url(); ?>/venues">Venues</a>
+                </div>
             </div>
-            <a id="navBrand" class="navbar-brand " href="<?php echo esc_url( home_url( '/' ) ); ?>">
-                <img id="navImg" src="<?php echo get_template_directory_uri(); ?>/assets/img/white-wide.svg"
+
+
+
+            <a id="navBrand" class="navbar-brand move-bitch" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                <img id="navImg" src="<?php echo get_template_directory_uri(); ?>/assets/img/hh-logo.svg"
                     alt="Vanguard Logo" style>
             </a>
         </header><!-- #masthead -->
