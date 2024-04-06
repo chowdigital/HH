@@ -166,3 +166,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 // animate logos end
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("reveal-animation");
+        }
+      });
+    },
+    { threshold: 0.5 }
+  ); // Trigger when 50% is visible; adjust as needed
+
+  document.querySelectorAll(".appear-pic").forEach((element) => {
+    observer.observe(element);
+  });
+});

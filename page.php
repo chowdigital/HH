@@ -16,14 +16,7 @@ get_header();
 ?>
 
 <main id="page-main">
-    <div class="full-height-column">
-        <div class="hero-img round-br shadow"
-            style="background-image:  url(<?php the_post_thumbnail_url(); ?>); background-repeat: no-repeat; background-position: center; background-size: cover;">
-        </div>
-        <div class="logo-landing appear2">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sunset.svg" alt="">
-        </div>
-    </div>
+
     <section class="container">
 
 

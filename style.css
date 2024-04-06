@@ -386,7 +386,13 @@ body {
       align-self: flex-end;
 }
 
-h1,
+h1 {
+  font-family: "brandon-grotesque", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 2em;
+}
+
 h2 {
   font-family: "brandon-grotesque", sans-serif;
   font-weight: 400;
@@ -438,17 +444,17 @@ li {
 
 @media (min-width: 768px) {
   h1 {
-    font-size: 3em;
+    font-size: 3.5em;
   }
 }
 @media (min-width: 992px) {
   h1 {
-    font-size: 3.5em;
+    font-size: 3em;
   }
 }
 @media (min-width: 1200px) {
   h1 {
-    font-size: 4em;
+    font-size: 5em;
   }
 }
 .navbar-brand {
@@ -885,6 +891,7 @@ footer a:hover {
       flex-basis: 50%;
   overflow-y: hidden;
   top: 0;
+  border: 2px solid #fff8ea;
 }
 .page-full-height .content-wrapper .feature-image img {
   width: 100%;
@@ -933,14 +940,15 @@ footer a:hover {
   -webkit-box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.8);
           box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.8);
   border: 2px solid #fff8ea;
+  position: relative; /* Needed for the absolute positioning of the pseudo-element */
+  overflow: hidden; /* Ensures the mask doesn't extend outside the div */
 }
 @media screen and (max-width: 992px) {
   .now-showing .custom-background {
-    padding-top: 100%; /* This creates a height that is 50% of the width */
+    padding-top: 100%; /* Adjust height for narrower screens */
   }
 }
 .now-showing .text-content {
-  width: 100%;
   padding-top: 50%; /* This creates a height that is 50% of the width */
   display: -webkit-box;
   display: -ms-flexbox;
@@ -975,7 +983,7 @@ footer a:hover {
 }
 
 /* Responsive adjustments */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
   /* For small devices */
   .now-showing .text-content {
     -webkit-box-flex: 1;
@@ -991,10 +999,12 @@ footer a:hover {
     background-repeat: no-repeat;
   }
 }
-.theatre {
+.theatre,
+.bars {
   width: 100%;
 }
-.theatre .past-production {
+.theatre .past-production,
+.bars .past-production {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1008,71 +1018,88 @@ footer a:hover {
           align-items: stretch;
   width: 100%;
 }
-.theatre .past-production .square-background {
+.theatre .past-production .square-background,
+.bars .past-production .square-background {
   -webkit-box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.8);
           box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.8);
 }
-.theatre .past-production .text-content {
+.theatre .past-production .text-content,
+.bars .past-production .text-content {
   -webkit-box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.4);
           box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.4);
 }
 @media (min-width: 992px) {
-  .theatre .past-production {
+  .theatre .past-production,
+  .bars .past-production {
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
   }
 }
-.theatre .past-production:nth-child(odd) {
+.theatre .past-production:nth-child(odd),
+.bars .past-production:nth-child(odd) {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
 }
 .theatre .past-production:nth-child(odd) .square-background,
-.theatre .past-production:nth-child(odd) .text-content {
+.theatre .past-production:nth-child(odd) .text-content,
+.bars .past-production:nth-child(odd) .square-background,
+.bars .past-production:nth-child(odd) .text-content {
   width: 100%;
   border: 2px solid #fff8ea;
 }
 @media (min-width: 992px) {
   .theatre .past-production:nth-child(odd) .square-background,
-  .theatre .past-production:nth-child(odd) .text-content {
+  .theatre .past-production:nth-child(odd) .text-content,
+  .bars .past-production:nth-child(odd) .square-background,
+  .bars .past-production:nth-child(odd) .text-content {
     -ms-flex-preferred-size: 50%;
         flex-basis: 50%;
   }
 }
-.theatre .past-production:nth-child(even) {
+.theatre .past-production:nth-child(even),
+.bars .past-production:nth-child(even) {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
 }
 .theatre .past-production:nth-child(even) .square-background,
-.theatre .past-production:nth-child(even) .text-content {
+.theatre .past-production:nth-child(even) .text-content,
+.bars .past-production:nth-child(even) .square-background,
+.bars .past-production:nth-child(even) .text-content {
   border: 2px solid #fff8ea;
   width: 100%;
 }
 @media (min-width: 992px) {
   .theatre .past-production:nth-child(even) .square-background,
-  .theatre .past-production:nth-child(even) .text-content {
+  .theatre .past-production:nth-child(even) .text-content,
+  .bars .past-production:nth-child(even) .square-background,
+  .bars .past-production:nth-child(even) .text-content {
     -ms-flex-preferred-size: 50%;
         flex-basis: 50%;
   }
 }
-.theatre .square-background {
+.theatre .square-background,
+.bars .square-background {
   background-size: cover;
   background-position: center;
 }
-.theatre .square-background:before {
+.theatre .square-background:before,
+.bars .square-background:before {
   content: "";
   float: left;
   padding-top: 100%;
 }
-.theatre .square-background:after {
+.theatre .square-background:after,
+.bars .square-background:after {
   content: "";
   display: table;
   clear: both;
 }
-.theatre .text-content {
+.theatre .text-content,
+.bars .text-content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1084,26 +1111,32 @@ footer a:hover {
           align-items: center;
   text-align: left;
 }
-.theatre .text-content:before {
+.theatre .text-content:before,
+.bars .text-content:before {
   content: "";
   float: left;
   padding-top: 100%;
 }
 @media (min-width: 768px) {
-  .theatre .text-content:before {
+  .theatre .text-content:before,
+  .bars .text-content:before {
     padding-top: 50%;
   }
 }
-.theatre .text-content:after {
+.theatre .text-content:after,
+.bars .text-content:after {
   content: "";
   display: table;
   clear: both;
 }
-.theatre .text-content-inner {
+.theatre .text-content-inner,
+.bars .text-content-inner {
   margin: 10%;
 }
 .theatre .text-content-inner,
-.theatre .text-content-inner p {
+.theatre .text-content-inner p,
+.bars .text-content-inner,
+.bars .text-content-inner p {
   color: #fff8ea;
 }
 
@@ -1120,6 +1153,28 @@ footer a:hover {
   border: 2px solid #fff8ea;
 }
 
+.color-box-white .text-content-inner {
+  color: #49141f !important;
+}
+.color-box-white .text-content-inner p {
+  color: #49141f !important;
+}
+
+@media (min-width: 992px) {
+  .wrapper-venues {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .wrapper-venues > :nth-child(1) {
+    -ms-flex-preferred-size: 70%;
+        flex-basis: 70%;
+  }
+  .wrapper-venues > :nth-child(2) {
+    -ms-flex-preferred-size: 30%;
+        flex-basis: 30%;
+  }
+}
 .button {
   padding: 2px 20px;
   background-color: #fff8ea;
@@ -1378,6 +1433,23 @@ footer a:hover {
             transform: translateX(-50%);
   }
 }
+.venues {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.color-box-white {
+  color: #49141f;
+}
+
 .all-posts {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1592,6 +1664,11 @@ footer a:hover {
   background: linear-gradient(to bottom, #e9bb8d, #975924);
 }
 
+.color-box-white {
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff8ea), to(#eadfca));
+  background: linear-gradient(to bottom, #fff8ea, #eadfca);
+}
+
 .dropdown {
   position: fixed;
   top: 0;
@@ -1634,9 +1711,7 @@ footer a:hover {
           transform: translateY(-10px);
   position: absolute;
   background-color: #fff8ea;
-  min-width: 160px;
-  -webkit-box-shadow: 0px 12px 10px rgba(0, 0, 0, 0.3);
-          box-shadow: 0px 12px 10px rgba(0, 0, 0, 0.3);
+  min-width: 280px;
   z-index: 1;
   right: 0;
   -webkit-transition: visibility 0s linear 0.5s, opacity 0.5s ease, -webkit-transform 0.5s ease;
@@ -1665,6 +1740,36 @@ footer a:hover {
 .dropdown:hover .dropbtn .arrow {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
+}
+
+.dropdown-content a {
+  position: relative;
+  display: block;
+  text-align: right;
+  overflow: hidden;
+}
+.dropdown-content a .dropdown-link-text {
+  position: relative;
+  display: inline;
+}
+.dropdown-content a .dropdown-link-text::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0%;
+  height: 1px;
+  background-color: #49141f;
+  -webkit-transition: width 0.5s ease-out;
+  transition: width 0.5s ease-out;
+}
+.dropdown-content a .dropdown-link-text:hover::after {
+  width: 100%;
+  right: 0;
+  left: auto;
+}
+.dropdown-content a:hover .dropdown-link-text::after {
+  width: 100%;
 }
 
 .pt-1 {

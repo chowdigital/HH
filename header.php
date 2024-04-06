@@ -79,15 +79,36 @@
                 </div>
 
             </div>
+            <?php
+// Determine the current page to set the dropdown button text accordingly
+$current_page = basename(get_permalink());
+$dropdown_title = "What We Do"; // Default dropdown title
+
+// Define your menu items and their corresponding slugs
+$menu_items = array(
+    "restaurants-bars" => "Restaurants & Bars",
+    "productions-entertainment" => "Productions & Entertainment",
+    "venues" => "Venues",
+);
+
+// Check if the current page is one of the menu items and update the title
+foreach ($menu_items as $slug => $name) {
+    if (strpos($current_page, $slug) !== false) {
+        $dropdown_title = $name;
+        break; // Stop the loop once we've found a match
+    }
+}
+?>
+
             <div class="dropdown move-bitch">
-                <button class="dropbtn">Restaurants & Bars <span class="arrow"></span></button>
+                <button class="dropbtn"><?php echo $dropdown_title; ?> <span class="arrow"></span></button>
                 <div class="dropdown-content">
-                    <a href="<?php echo get_home_url(); ?>/restaurants-bars">Restaurants & Bars</a>
-                    <a href="<?php echo get_home_url(); ?>/productions-entertainment">Productions & Entertainment</a>
-                    <a href="<?php echo get_home_url(); ?>/venues">Venues</a>
+                    <?php foreach ($menu_items as $slug => $name): ?>
+                    <a href="<?php echo esc_url(home_url('/')) . $slug; ?>"><span
+                            class="dropdown-link-text"><?php echo $name; ?></span></a>
+                    <?php endforeach; ?>
                 </div>
             </div>
-
 
 
             <a id="navBrand" class="navbar-brand move-bitch" href="<?php echo esc_url( home_url( '/' ) ); ?>">
