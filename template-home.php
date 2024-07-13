@@ -1,4 +1,4 @@
-<?php /* Template Name: Productions */ get_header(); ?>
+<?php /* Template Name: Home */ get_header(); ?>
 
 <main>
 
@@ -30,7 +30,6 @@
     </main>
 
 
-
     <div class="section-heading">
         <h2>Current Production</h2>
     </div>
@@ -57,76 +56,6 @@ if ($theatre_query->have_posts()) :
 
             </div>
 
-            <?php endif; ?>
-
-            <div class="text-content color-box">
-                <div class="text-content-inner">
-                    <h2><?php the_title(); ?></h2>
-                    <h3>/ <?php 
-                        $categories = get_the_category();
-                        if ( ! empty( $categories ) ) {
-                            // Loop through each category and display its name, excluding 'now-showing'
-                            foreach ( $categories as $category ) {
-                                if ( $category->slug != 'now-showing' ) { // Check the slug
-                                    echo esc_html( $category->name ) . ' ';
-                                }
-                            }
-                        }
-                        ?></h3>
-                    <?php the_content(); ?>
-
-                    <?php
-                        $custom_url = get_post_meta(get_the_ID(), '_custom_url', true);
-                        if (!empty($custom_url)) {
-                            echo '<a href="' . esc_url($custom_url) . '" target="_blank" class="button">Visit Website</a>';
-                        }
-                    ?>
-
-                </div>
-            </div>
-        </div>
-        <?php endwhile; 
-endif; 
-
-// Reset post data to ensure it doesn't affect other queries
-wp_reset_postdata(); 
-?>
-    </section>
-    <div class="section-heading">
-        <h2>Past Productions</h2>
-    </div>
-
-    <section class="bars">
-        <?php
-// Next, get all 'theatre' category posts not in 'now-showing'
-$args_theatre = array(
-    'posts_per_page' => -1, // Retrieve all posts
-    'tax_query' => array(
-        'relation' => 'AND', // Use AND to ensure all conditions must be met
-        array(
-            'taxonomy' => 'category',
-            'field'    => 'slug',
-            'terms'    => array('theatre', 'tour'), // Include 'theatre' and 'another-category' posts            'operator' => 'IN', // Specify the operator to include these terms
-        ),
-        array(
-            'taxonomy' => 'category',
-            'field'    => 'slug',
-            'terms'    => 'now-showing', // Exclude 'now-showing' posts
-            'operator' => 'NOT IN', // Exclude these terms
-        ),
-    ),
-);
-
-$theatre_query = new WP_Query($args_theatre);
-if ($theatre_query->have_posts()) : 
-    while ($theatre_query->have_posts()) : $theatre_query->the_post(); ?>
-
-        <div class="post-item past-production">
-            <?php if (has_post_thumbnail()) : ?>
-            <div class="animate-container">
-                <img src="<?php the_post_thumbnail_url('full'); ?>" alt="Revealed Image">
-                <div class="animate-overlay"></div>
-            </div>
             <?php endif; ?>
 
             <div class="text-content color-box">

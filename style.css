@@ -402,18 +402,23 @@ body {
       align-self: flex-end;
 }
 
-h1 {
+h2 {
+  font-family: "brandon-grotesque", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2em;
+}
+
+h1,
+.section-heading h2 {
   font-family: "brandon-grotesque", sans-serif;
   font-weight: 100;
   font-style: normal;
   font-size: 2em;
 }
 
-h2 {
-  font-family: "brandon-grotesque", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 2em;
+.section-heading h2 {
+  margin: 10%;
 }
 
 h3,
@@ -446,7 +451,8 @@ button {
   color: #fff8ea;
 }
 
-h1 {
+h1,
+.section-heading h2 {
   font-size: 2.5em;
 }
 

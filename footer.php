@@ -36,19 +36,25 @@
 
     <div class="footer-contact">
         <!-- Contact Information Placeholder -->
-        <p>Phone: <a href="tel:+442037454450">020 3745 4450</a></p>
         <p>Email: <a href="mailto:admin@hartshornhook.com">admin@hartshornhook.com</a></p>
-        <p>Address: <a href="">52-56 Davies Street London Mayfair W1K 5JF</a></p>
+        <p>Address: <a
+                href="https://www.google.com/maps/place/Kingswood+Arts/@51.430451,-0.0815556,15z/data=!4m2!3m1!1s0x0:0xc578df259b102b53?sa=X&ved=1t:2428&ictx=111">Kingswood
+                Arts, Seeley Drive, London, SE21 8QN
+
+                Facebook</a></p>
 
     </div>
     <div class="footer-socials">
         <!-- Social Media Links -->
         <ul>
-            <li><a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/facebook.svg"
+            <li><a href="https://www.facebook.com/hartshornhook1"><img
+                        src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/facebook.svg"
                         alt="Facebook"></a></li>
-            <li><a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/twitter.svg"
+            <li><a href="https://x.com/hartshornhook"><img
+                        src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/twitter.svg"
                         alt="Twitter"></a></li>
-            <li><a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/instagram.svg"
+            <li><a href="https://www.instagram.com/hartshornhook/"><img
+                        src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/instagram.svg"
                         alt="Instagram"></a></li>
         </ul>
     </div>
