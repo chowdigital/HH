@@ -37,7 +37,7 @@
                 <div id="open-menu" class="move-bitch menu-button container-checkbox">
                     <input type="checkbox" id="checkbox1" class="checkbox1 visuallyHidden">
                     <label for="checkbox1">
-                        <div class="d-none hamburger hamburger1">
+                        <div class="hamburger hamburger1">
                             <span class="bar bar1"></span>
                             <span class="bar bar2"></span>
                             <span class="bar bar3"></span>
@@ -55,8 +55,8 @@
                     <div class="off-canvas-container">
                         <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
                             <img id="navImg" class="move-bitch"
-                                src="<?php echo get_template_directory_uri(); ?>/assets/img/white-logo.svg"
-                                alt="Starsky Logo">
+                                src="<?php echo get_template_directory_uri(); ?>/assets/img/hh-logo.svg"
+                                alt="Hartshorn-Hook Logo">
                         </a>
 
 

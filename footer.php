@@ -10,22 +10,49 @@
  */
 
 ?>
+<footer id="colophon" class="site-footer">
+    <div class="footer-logo">
+        <a href="<?php echo esc_url(home_url('/')); ?>">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/hh-logo-white.svg"
+                alt="Hartshorn-Hook Logo">
+        </a>
+    </div>
+
+    <nav class="footer-menu">
+        <?php
+            // Example of using wp_nav_menu with a different theme location or menu class
+            wp_nav_menu(
+                array(
+                    'theme_location' => 'footer-menu',
+                    'menu_class'     => 'footer-nav',
+                    'container'      => false,
+                )
+            );
+        ?>
+    </nav>
 
 
 
-<!-- Footer -->
-<footer id="footer">
 
+    <div class="footer-contact">
+        <!-- Contact Information Placeholder -->
+        <p>Phone: <a href="tel:+442037454450">020 3745 4450</a></p>
+        <p>Email: <a href="mailto:admin@hartshornhook.com">admin@hartshornhook.com</a></p>
+        <p>Address: <a href="">52-56 Davies Street London Mayfair W1K 5JF</a></p>
 
-
+    </div>
+    <div class="footer-socials">
+        <!-- Social Media Links -->
+        <ul>
+            <li><a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/facebook.svg"
+                        alt="Facebook"></a></li>
+            <li><a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/twitter.svg"
+                        alt="Twitter"></a></li>
+            <li><a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/instagram.svg"
+                        alt="Instagram"></a></li>
+        </ul>
+    </div>
 </footer>
-<div class="center-text" style="background: #000; height:40px;  text-align: center;">
-    <a href="https://cloudsdale.co.uk/">
-        <img class="m-2" src="https://cloudsdale.co.uk/wp-content/themes/Cloudsdale_2.0/assets/img/cloudsdale_logo.svg"
-            alt="Cloudsdale" style="height:20px; padding-top:10px;">
-    </a>
-</div>
-
 
 <?php wp_footer(); ?>
 </div>

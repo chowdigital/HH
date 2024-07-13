@@ -15,23 +15,21 @@
 get_header();
 ?>
 
-<main id="main" class="site-main" role="main">
-    <section class="content-wrapper">
-        <div class="sticky-text-content">
-            <div class="text-content-inner">
+<main id="page-main">
 
-                <?php
-            // Loop through posts (there should only be one in a standard page query)
-            if ( have_posts() ) : while ( have_posts() ) : the_post();
-            echo '<h1>'; // Start h1 tag
-            the_title();
-            echo '</h1>'; // Close h1 tag
-            the_content();
-            endwhile; endif;
-            ?>
+    <section class="page-full-height">
+        <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+        <div class="content-wrapper">
+            <!-- Left Side: Title and Content -->
+            <div class="text-content">
+                <div class="text-content-inner">
+                    <h1><?php the_title(); ?></h1>
+
+                    <?php the_content(); ?>
+                </div>
             </div>
-        </div>
-        <div class="image-content">
+
+            <!-- Right Side: Feature Image -->
             <?php if (has_post_thumbnail()) : ?>
             <div class="animate-container feature-image">
                 <img src="<?php the_post_thumbnail_url('full'); ?>" alt="Revealed Image">
@@ -39,7 +37,9 @@ get_header();
             </div>
             <?php endif; ?>
         </div>
+        <?php endwhile; endif; ?>
     </section>
-</main>
+</main><!-- #main -->
+
 <?php
 get_footer();

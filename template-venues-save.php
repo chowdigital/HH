@@ -1,33 +1,28 @@
 <?php /* Template Name: Venues */ get_header(); ?>
 
 <main>
-
-    <main id="main" class="site-main" role="main">
-        <section class="content-wrapper">
-            <div class="sticky-text-content">
+    <section class="page-full-height">
+        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+        <div class="content-wrapper">
+            <!-- Left Side: Title and Content -->
+            <div class="text-content">
                 <div class="text-content-inner">
+                    <h1><?php the_title(); ?></h1>
+                    <?php the_content(); ?>
+                </div>
+            </div>
 
-                    <?php
-            // Loop through posts (there should only be one in a standard page query)
-            if ( have_posts() ) : while ( have_posts() ) : the_post();
-            echo '<h1>'; // Start h1 tag
-            the_title();
-            echo '</h1>'; // Close h1 tag
-            the_content();
-            endwhile; endif;
-            ?>
-                </div>
+            <!-- Right Side: Feature Image -->
+            <?php if (has_post_thumbnail()) : ?>
+            <div class="feature-image">
+                <?php the_post_thumbnail('full'); ?>
             </div>
-            <div class="image-content">
-                <?php if (has_post_thumbnail()) : ?>
-                <div class="animate-container feature-image">
-                    <img src="<?php the_post_thumbnail_url('full'); ?>" alt="Revealed Image">
-                    <div class="animate-overlay"></div>
-                </div>
-                <?php endif; ?>
-            </div>
-        </section>
-    </main>
+            <?php endif; ?>
+        </div>
+        <?php endwhile; else: ?>
+        <p>Sorry, no posts matched your criteria.</p>
+        <?php endif; ?>
+    </section>
 
     <section class="venues">
         <?php
@@ -46,11 +41,9 @@
 
     $venues_query = new WP_Query($args_venues);
     if ($venues_query->have_posts()) : while ($venues_query->have_posts()) : $venues_query->the_post(); ?>
-        <div class="post-item now-showing venues-loop">
+        <div class="post-item now-showing">
             <?php if (has_post_thumbnail()) : ?>
-            <div class="animate-container">
-                <img src="<?php the_post_thumbnail_url('full'); ?>" alt="Revealed Image">
-                <div class="animate-overlay"></div>
+            <div class="appear-pic" style="background-image: url('<?php the_post_thumbnail_url('full'); ?>');">
             </div>
             <?php endif; ?>
             <div class="wrapper-venues">
@@ -73,7 +66,7 @@
                         <?php
                         $custom_url = get_post_meta(get_the_ID(), '_custom_url', true);
                         if (!empty($custom_url)) {
-                            echo '<div class="button-wrapper"><a href="' . esc_url($custom_url) . '" target="_blank" class="button">Visit Website</a></div>';
+                            echo '<a href="' . esc_url($custom_url) . '" target="_blank" class="button">Visit Website</a>';
                         }
                     ?>
                     </div>

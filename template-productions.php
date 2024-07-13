@@ -1,27 +1,33 @@
 <?php /* Template Name: Productions */ get_header(); ?>
 
 <main>
-    <section class="page-full-height">
-        <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-        <div class="content-wrapper">
-            <!-- Left Side: Title and Content -->
-            <div class="text-content">
-                <div class="text-content-inner">
-                    <h1><?php the_title(); ?></h1>
 
-                    <?php the_content(); ?>
+    <main id="main" class="site-main" role="main">
+        <section class="content-wrapper">
+            <div class="sticky-text-content">
+                <div class="text-content-inner">
+
+                    <?php
+            // Loop through posts (there should only be one in a standard page query)
+            if ( have_posts() ) : while ( have_posts() ) : the_post();
+            echo '<h1>'; // Start h1 tag
+            the_title();
+            echo '</h1>'; // Close h1 tag
+            the_content();
+            endwhile; endif;
+            ?>
                 </div>
             </div>
-
-            <!-- Right Side: Feature Image -->
-            <?php if ( has_post_thumbnail() ) : ?>
-            <div class="feature-image">
-                <?php the_post_thumbnail('full'); ?>
+            <div class="image-content">
+                <?php if (has_post_thumbnail()) : ?>
+                <div class="animate-container feature-image">
+                    <img src="<?php the_post_thumbnail_url('full'); ?>" alt="Revealed Image">
+                    <div class="animate-overlay"></div>
+                </div>
+                <?php endif; ?>
             </div>
-            <?php endif; ?>
-        </div>
-        <?php endwhile; endif; ?>
-    </section>
+        </section>
+    </main>
 
     <section class="now-showing">
         <?php
@@ -51,11 +57,11 @@ if ($now_showing_query->have_posts()) :
         </div>
 
 
-        <div class="post-item now-showing">
-            <?php if ( has_post_thumbnail() ) : ?>
-            <div class="custom-background inner-shadow-div"
-                style="background-image: url('<?php the_post_thumbnail_url('full'); ?>');">
-
+        <div class="post-item now-showing venues-loop">
+            <?php if (has_post_thumbnail()) : ?>
+            <div class="animate-container">
+                <img src="<?php the_post_thumbnail_url('full'); ?>" alt="Revealed Image">
+                <div class="animate-overlay"></div>
             </div>
             <?php endif; ?>
 
@@ -108,7 +114,7 @@ wp_reset_postdata();
     </div>
 
 
-    <section class="theatre">
+    <section class="bars">
         <?php
 // Next, get all 'theatre' category posts not in 'now-showing'
 $args_theatre = array(
@@ -134,12 +140,12 @@ if ($theatre_query->have_posts()) :
     while ($theatre_query->have_posts()) : $theatre_query->the_post(); ?>
 
         <div class="post-item past-production">
-            <?php if ( has_post_thumbnail() ) : ?>
-            <div class="square-background" style="background-image: url('<?php the_post_thumbnail_url('full'); ?>');">
-                <?php endif; ?>
-
+            <?php if (has_post_thumbnail()) : ?>
+            <div class="animate-container">
+                <img src="<?php the_post_thumbnail_url('full'); ?>" alt="Revealed Image">
+                <div class="animate-overlay"></div>
             </div>
-
+            <?php endif; ?>
 
             <div class="text-content color-box">
                 <div class="text-content-inner">
