@@ -79,7 +79,7 @@
                 </div>
 
             </div>
-            <?php
+            <!--   <?php
 // Determine the current page to set the dropdown button text accordingly
 $current_page = basename(get_permalink());
 $dropdown_title = "What We Do"; // Default dropdown title
@@ -109,10 +109,13 @@ foreach ($menu_items as $slug => $name) {
                     <?php endforeach; ?>
                 </div>
             </div>
-
-
+                    -->
+            <div class="dropdown move-bitch">
+                <a href="https://seanc369.sg-host.com/#currentProductions">
+                    <button class="dropbtn"> Current Productions</button></a>
+            </div>
             <a id="navBrand" class="navbar-brand move-bitch" href="<?php echo esc_url( home_url( '/' ) ); ?>">
                 <img id="navImg" src="<?php echo get_template_directory_uri(); ?>/assets/img/hh-logo.svg"
-                    alt="Vanguard Logo" style>
+                    alt="Hartshorn – Hook Enterprises Ltd Logo" style>
             </a>
         </header><!-- #masthead -->

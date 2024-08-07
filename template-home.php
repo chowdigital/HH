@@ -30,8 +30,8 @@
     </main>
 
 
-    <div class="section-heading">
-        <h2>Current Production</h2>
+    <div id="currentProductions" class="section-heading">
+        <h2>Current Productions</h2>
     </div>
 
 
@@ -47,7 +47,12 @@ $theatre_query = new WP_Query($args_theatre);
 if ($theatre_query->have_posts()) : 
     while ($theatre_query->have_posts()) : $theatre_query->the_post(); ?>
 
-        <div class="post-item past-production">
+        <a target="_blank" href="<?php
+    $custom_url = get_post_meta(get_the_ID(), '_custom_url', true);
+    if (!empty($custom_url)) {
+        echo esc_url($custom_url);
+    }
+?>" class="post-item past-production">
             <?php if (has_post_thumbnail()) : ?>
 
             <div class="animate-container">
@@ -73,17 +78,11 @@ if ($theatre_query->have_posts()) :
                         }
                         ?></h3>
                     <?php the_content(); ?>
-
-                    <?php
-                        $custom_url = get_post_meta(get_the_ID(), '_custom_url', true);
-                        if (!empty($custom_url)) {
-                            echo '<a href="' . esc_url($custom_url) . '" target="_blank" class="button">Visit Website</a>';
-                        }
-                    ?>
+                    <div class="button">Visit Website</div>
 
                 </div>
             </div>
-        </div>
+        </a>
         <?php endwhile; 
 endif; 
 

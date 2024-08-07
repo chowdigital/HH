@@ -325,6 +325,10 @@ html {
   height: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-image: url("../Starsky/assets/img/photos/AdobeStock_569746674.png"); /* Replace 'your-image.jpg' with the path to your background image */
   background-repeat: repeat;
@@ -336,6 +340,7 @@ body {
   overflow: scroll;
   border-right: 2px solid #fff8ea;
   border-left: 2px solid #fff8ea;
+  width: calc(100% - 4px);
 }
 
 #page {
@@ -402,6 +407,10 @@ body {
       align-self: flex-end;
 }
 
+.pt-3 {
+  padding-top: 20px;
+}
+
 h2 {
   font-family: "brandon-grotesque", sans-serif;
   font-weight: 400;
@@ -418,7 +427,8 @@ h1,
 }
 
 .section-heading h2 {
-  margin: 10%;
+  padding: 10% 5% 2% 5%;
+  text-align: center;
 }
 
 h3,
@@ -964,7 +974,6 @@ li {
           order: 2;
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
-  min-height: 100vh;
   overflow-y: auto;
 }
 .sticky-text-content .text-content-inner {
@@ -1002,6 +1011,7 @@ img {
         flex-wrap: nowrap;
   }
   .sticky-text-content {
+    min-height: 100vh;
     -ms-flex-preferred-size: 50%;
         flex-basis: 50%;
     -webkit-box-ordinal-group: 2;
@@ -1076,6 +1086,9 @@ img {
 }
 .now-showing .text-content .text-content-inner {
   padding: 20px; /* Adjust the padding as needed for centering */
+}
+.now-showing .text-content .text-content-inner br {
+  margin-bottom: 15px;
 }
 .now-showing .text-content-inner,
 .now-showing .text-content-inner p {
@@ -1260,6 +1273,14 @@ img {
   color: #49141f !important;
 }
 
+.venues-loop {
+  width: 100%;
+}
+
+.wrapper-venues {
+  width: 100%;
+}
+
 @media (min-width: 992px) {
   .wrapper-venues {
     display: -webkit-box;
@@ -1267,12 +1288,18 @@ img {
     display: flex;
   }
   .wrapper-venues > :nth-child(1) {
-    -ms-flex-preferred-size: 70%;
-        flex-basis: 70%;
+    -ms-flex-preferred-size: 45%;
+        flex-basis: 45%;
   }
   .wrapper-venues > :nth-child(2) {
-    -ms-flex-preferred-size: 30%;
-        flex-basis: 30%;
+    -ms-flex-preferred-size: 55%;
+        flex-basis: 55%;
+  }
+  .venues-loop:nth-of-type(odd) .wrapper-venues {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
   }
 }
 /* Button base styles */
@@ -1770,6 +1797,48 @@ img {
 }
 .dropdown-content a:hover .dropdown-link-text::after {
   width: 100%;
+}
+
+.wp-block-list li {
+  list-style-type: circle;
+}
+
+.site-main a,
+.site-main a:visited,
+.site-main a:focus {
+  color: #1c9481;
+}
+.site-main a:hover {
+  color: #01456d;
+}
+
+.wp-block-button__link {
+  font-family: "brandon-grotesque", sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #2b0b11 !important;
+  border: 0;
+  border-radius: 4px;
+  padding: 10px 30px;
+  font-weight: bold;
+  background-color: #feb002; /* Replace with your white color */
+  cursor: pointer; /* Cursor to pointer */
+  outline: none; /* Remove outline */
+  overflow: hidden; /* Hide overflow for slide effect */
+  text-decoration: none; /* Remove underline from links */
+  display: inline-block; /* Make sure it's inline-block */
+  -webkit-transition: all 0.6s ease;
+  transition: all 0.6s ease; /* Smooth transition */
+  -webkit-box-shadow: inset 0 0 0 0 #1c9481;
+          box-shadow: inset 0 0 0 0 #1c9481; /* Initial box-shadow state */
+}
+
+.wp-block-button__link:hover {
+  -webkit-box-shadow: inset 400px 0 0 0 #1c9481;
+          box-shadow: inset 400px 0 0 0 #1c9481; /* Fill color slides in */
+  color: #1c9481; /* Replace with your white color */
+  border-radius: 4px;
+  background-color: #fff8ea; /* Replace with your primary color */
 }
 
 .pt-1 {
